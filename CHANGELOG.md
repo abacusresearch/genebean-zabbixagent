@@ -1,5 +1,8 @@
 [![GitHub tag][gh-tag-img]][gh-link]
 
+## 2024-01-15 - Release 3.1.0
+- replace legacy facts
+
 ## 2017-08-06 - Release 3.0.1  
 - First run at using modulesync
 - Stopped testing against Puppet 3

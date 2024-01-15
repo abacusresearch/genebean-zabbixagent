@@ -5,7 +5,7 @@ class zabbixagent::install (
   $custom_require_windows = $::zabbixagent::custom_require_windows,
   $package_name           = $::zabbixagent::package_name,
   $version                = $::zabbixagent::version) {
-  case $::kernel {
+  case $facts['kernel'] {
     'Linux'   : {
 
       if ($package_name != 'zabbix-agent') {

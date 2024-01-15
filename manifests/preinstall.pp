@@ -3,7 +3,7 @@ class zabbixagent::preinstall (
   $manage_repo_epel   = $::zabbixagent::manage_repo_epel,
   $manage_repo_zabbix = $::zabbixagent::manage_repo_zabbix,
   $version            = $::zabbixagent::version,) {
-  case $::osfamily {
+  case $facts['os']['family'] {
     'RedHat'  : {
       # EPEL
       if ($manage_repo_epel) {
@@ -59,10 +59,10 @@ class zabbixagent::preinstall (
     } # end Debian
 
     'Suse' : {
-      case $::operatingsystem {
+      case $facts['os']['name'] {
 
         'SLES' : {
-          case $::operatingsystemrelease {
+          case $facts['os']['release']['full'] {
 
             '11.3', '11.4', '12.0', '12.1' : {
               # Zabbix
@@ -77,7 +77,7 @@ class zabbixagent::preinstall (
 
             default : {
               # lint:ignore:80chars
-              fail("${::operatingsystem} ${::operatingsystemrelease} is not supported")
+              fail("${facts['os']['name']} ${facts['os']['release']['full']} is not supported")
               # lint:endignore
             }
 
