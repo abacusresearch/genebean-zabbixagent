@@ -229,68 +229,68 @@
 #
 class zabbixagent (
   # depreciated vars
-  $include_dir             = undef,
-  $include_file            = undef,
-  $logfile                 = undef,
-  $servers                 = undef,
-  $servers_active          = undef,
+  $include_dir                = undef,
+  $include_file               = undef,
+  $logfile                    = undef,
+  $servers                    = undef,
+  $servers_active             = undef,
 
   # preinstall settings
-  $manage_repo_epel        = $::zabbixagent::params::manage_repo_epel,
-  $manage_repo_zabbix      = $::zabbixagent::params::manage_repo_zabbix,
+  Boolean $manage_repo_epel   = $::zabbixagent::params::manage_repo_epel,
+  Boolean $manage_repo_zabbix = $::zabbixagent::params::manage_repo_zabbix,
 
   # conf settings
-  $config_dir              = $::zabbixagent::params::config_dir,
+  $config_dir                 = $::zabbixagent::params::config_dir,
 
   # install setting
-  $ensure_setting          = $::zabbixagent::params::ensure_setting,
-  $custom_require_linux    = $::zabbixagent::params::custom_require_linux,
-  $custom_require_windows  = $::zabbixagent::params::custom_require_windows,
+  String $ensure_setting      = $::zabbixagent::params::ensure_setting,
+  $custom_require_linux       = $::zabbixagent::params::custom_require_linux,
+  $custom_require_windows     = $::zabbixagent::params::custom_require_windows,
 
   # config file settings
-  $allow_root              = $::zabbixagent::params::allow_root,
-  $buffer_send             = $::zabbixagent::params::buffer_send,
-  $buffer_size             = $::zabbixagent::params::buffer_size,
-  $debug_level             = $::zabbixagent::params::debug_level,
-  $enable_remote_commands  = $::zabbixagent::params::enable_remote_commands,
-  $host_metadata           = $::zabbixagent::params::host_metadata,
-  $host_metadata_item      = $::zabbixagent::params::host_metadata_item,
-  $hostname                = $::zabbixagent::params::hostname,
-  $hostname_item           = $::zabbixagent::params::hostname_item,
-  $include_files           = $::zabbixagent::params::include_files,
-  $item_alias              = $::zabbixagent::params::item_alias,
-  $listen_ip               = $::zabbixagent::params::listen_ip,
-  $listen_port             = $::zabbixagent::params::listen_port,
-  $load_module             = $::zabbixagent::params::load_module,
-  $load_module_path        = $::zabbixagent::params::load_module_path,
-  $log_file                = $::zabbixagent::params::log_file,
-  $log_file_size           = $::zabbixagent::params::log_file_size,
-  $log_remote_commands     = $::zabbixagent::params::log_remote_commands,
-  $log_type                = $::zabbixagent::params::log_type,
-  $max_lines_per_second    = $::zabbixagent::params::max_lines_per_second,
-  $package_name            = $::zabbixagent::params::package_name,
-  $perf_counter            = $::zabbixagent::params::perf_counter,
-  $pid_file                = $::zabbixagent::params::pid_file,
-  $refresh_active_checks   = $::zabbixagent::params::refresh_active_checks,
-  $server                  = $::zabbixagent::params::server,
-  $server_active           = $::zabbixagent::params::server_active,
-  $source_ip               = $::zabbixagent::params::source_ip,
-  $start_agents            = $::zabbixagent::params::start_agents,
-  $timeout                 = $::zabbixagent::params::timeout,
-  $tls_accept              = $::zabbixagent::params::tls_accept,
-  $tls_ca_file             = $::zabbixagent::params::tls_ca_file,
-  $tls_cert_file           = $::zabbixagent::params::tls_cert_file,
-  $tls_connect             = $::zabbixagent::params::tls_connect,
-  $tls_crl_file            = $::zabbixagent::params::tls_crl_file,
-  $tls_key_file            = $::zabbixagent::params::tls_key_file,
-  $tls_psk_file            = $::zabbixagent::params::tls_psk_file,
-  $tls_psk_identity        = $::zabbixagent::params::tls_psk_identity,
-  $tls_server_cert_issuer  = $::zabbixagent::params::tls_server_cert_issuer,
-  $tls_server_cert_subject = $::zabbixagent::params::tls_server_cert_subject,
-  $unsafe_user_parameters  = $::zabbixagent::params::unsafe_user_parameters,
-  $user_parameter          = $::zabbixagent::params::user_parameter,
-  $user                    = $::zabbixagent::params::user,
-  $version                 = $::zabbixagent::params::version,
+  $allow_root                 = $::zabbixagent::params::allow_root,
+  $buffer_send                = $::zabbixagent::params::buffer_send,
+  $buffer_size                = $::zabbixagent::params::buffer_size,
+  $debug_level                = $::zabbixagent::params::debug_level,
+  $enable_remote_commands     = $::zabbixagent::params::enable_remote_commands,
+  $host_metadata              = $::zabbixagent::params::host_metadata,
+  $host_metadata_item         = $::zabbixagent::params::host_metadata_item,
+  String $hostname            = $::zabbixagent::params::hostname,
+  $hostname_item              = $::zabbixagent::params::hostname_item,
+  $include_files              = $::zabbixagent::params::include_files,
+  $item_alias                 = $::zabbixagent::params::item_alias,
+  $listen_ip                  = $::zabbixagent::params::listen_ip,
+  $listen_port                = $::zabbixagent::params::listen_port,
+  $load_module                = $::zabbixagent::params::load_module,
+  $load_module_path           = $::zabbixagent::params::load_module_path,
+  $log_file                   = $::zabbixagent::params::log_file,
+  $log_file_size              = $::zabbixagent::params::log_file_size,
+  $log_remote_commands        = $::zabbixagent::params::log_remote_commands,
+  $log_type                   = $::zabbixagent::params::log_type,
+  $max_lines_per_second       = $::zabbixagent::params::max_lines_per_second,
+  $package_name               = $::zabbixagent::params::package_name,
+  $perf_counter               = $::zabbixagent::params::perf_counter,
+  $pid_file                   = $::zabbixagent::params::pid_file,
+  $refresh_active_checks      = $::zabbixagent::params::refresh_active_checks,
+  $server                     = $::zabbixagent::params::server,
+  $server_active              = $::zabbixagent::params::server_active,
+  $source_ip                  = $::zabbixagent::params::source_ip,
+  $start_agents               = $::zabbixagent::params::start_agents,
+  $timeout                    = $::zabbixagent::params::timeout,
+  $tls_accept                 = $::zabbixagent::params::tls_accept,
+  $tls_ca_file                = $::zabbixagent::params::tls_ca_file,
+  $tls_cert_file              = $::zabbixagent::params::tls_cert_file,
+  $tls_connect                = $::zabbixagent::params::tls_connect,
+  $tls_crl_file               = $::zabbixagent::params::tls_crl_file,
+  $tls_key_file               = $::zabbixagent::params::tls_key_file,
+  $tls_psk_file               = $::zabbixagent::params::tls_psk_file,
+  $tls_psk_identity           = $::zabbixagent::params::tls_psk_identity,
+  $tls_server_cert_issuer     = $::zabbixagent::params::tls_server_cert_issuer,
+  $tls_server_cert_subject    = $::zabbixagent::params::tls_server_cert_subject,
+  $unsafe_user_parameters     = $::zabbixagent::params::unsafe_user_parameters,
+  $user_parameter             = $::zabbixagent::params::user_parameter,
+  $user                       = $::zabbixagent::params::user,
+  $version                    = $::zabbixagent::params::version,
 ) inherits ::zabbixagent::params {
   # lint:ignore:80chars
   # these should not be used as they are pre v2.1
@@ -316,14 +316,6 @@ class zabbixagent (
   if ($servers_active) {
     fail("\$servers_active ${depreciation_msg}")
   }
-
-  # validate booleans
-  validate_bool($manage_repo_epel)
-  validate_bool($manage_repo_zabbix)
-
-  # validate strings
-  validate_string($ensure_setting)
-  validate_string($hostname)
 
   if (!(is_string($server) or is_array($server))) {
     fail('$servers must be either a string or an array')
