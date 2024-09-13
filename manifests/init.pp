@@ -272,8 +272,8 @@ class zabbixagent (
   $perf_counter               = $::zabbixagent::params::perf_counter,
   $pid_file                   = $::zabbixagent::params::pid_file,
   $refresh_active_checks      = $::zabbixagent::params::refresh_active_checks,
-  $server                     = $::zabbixagent::params::server,
-  $server_active              = $::zabbixagent::params::server_active,
+  Optional[Variant[String, Array]] $server = $::zabbixagent::params::server,
+  Optional[Variant[String, Array]] $server_active = $::zabbixagent::params::server_active,
   $source_ip                  = $::zabbixagent::params::source_ip,
   $start_agents               = $::zabbixagent::params::start_agents,
   $timeout                    = $::zabbixagent::params::timeout,
@@ -315,14 +315,6 @@ class zabbixagent (
 
   if ($servers_active) {
     fail("\$servers_active ${depreciation_msg}")
-  }
-
-  if (!(is_string($server) or is_array($server))) {
-    fail('$servers must be either a string or an array')
-  }
-
-  if (!(is_string($server_active) or is_array($server_active))) {
-    fail('$servers_active must be either a string or an array')
   }
 
   if !($version in [ '2.4', '3.0', '3.2' ]) {
